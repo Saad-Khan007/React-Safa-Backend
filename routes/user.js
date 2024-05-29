@@ -85,8 +85,8 @@ router.post('/signup', [
 
 // Route 3: Get user by jwt token
 // Path: /user/getuser
-// Type: POST
-router.post('/getuser', fetchUser, async (req, res) => {
+// Type: Get
+router.get('/getuser', fetchUser, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password')
         res.status(200).json(user);
